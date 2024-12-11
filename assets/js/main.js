@@ -1,13 +1,13 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 
-const maxRecords = 151
+const maxRecords = 999
 const limit = 10
 let offset = 0;
 
 function convertPokemonToLi(pokemon) {
     return `
-        <li class="pokemon ${pokemon.type}">
+        <li class="pokemon gradient ${pokemon.type} ${pokemon.types[1]}1">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
 
@@ -15,9 +15,8 @@ function convertPokemonToLi(pokemon) {
                 <ol class="types">
                     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
                 </ol>
-
                 <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
+                     alt="${pokemon.name}" >            
             </div>
         </li>
     `
@@ -45,3 +44,5 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+
